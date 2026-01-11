@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Основной контент с прокруткой -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigation"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👤 Профиль"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="30dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/bg_gradient">
+
+                    <TextView
+                        android:id="@+id/userNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Иван Иванов"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/userEmailText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="user@example.com"
+                        android:textSize="16sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/registrationDateText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Дата регистрации: 01.01.2024"
+                        android:textSize="14sp"
+                        android:textColor="#E0E0E0"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/userIdText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ID: user_123"
+                        android:textSize="12sp"
+                        android:textColor="#E0E0E0" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✏️ Редактировать профиль"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"
+                android:onClick="updateprof"/>
+
+            <Button
+                android:id="@+id/deleteProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🗑️ Удалить профиль"
+                android:backgroundTint="#F44336"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"
+                android:onClick="deleteprof"/>
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚪 Выйти"
+                android:backgroundTint="#FF9800"
+                android:textColor="#FFFFFF"
+                android:onClick="exitprof"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Навигация фиксированная внизу -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:labelVisibilityMode="labeled" />
+
+</RelativeLayout>

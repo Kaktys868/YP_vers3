@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Новая цель"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Название цели -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#F5F5F5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название цели"
+            android:textSize="16sp"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Целевая сумма -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#F5F5F5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/targetAmountInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Целевая сумма"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Текущая сумма -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#F5F5F5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/currentAmountInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Текущая сумма"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Дедлайн -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#F5F5F5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/deadlineInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Дедлайн (дд.мм.гггг)"
+            android:textSize="16sp"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

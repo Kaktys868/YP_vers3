@@ -1,0 +1,50 @@
+﻿<Page x:Class="PiggyBankAdmin.Views.Pages.GoalsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Цели">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель управления -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="🎯 Управление целями" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+            <Button Content="➕ Создать цель" Click="CreateGoal_Click" Background="#88D398" Foreground="White" Margin="20,0,0,0" Padding="10,5"/>
+            <Button Content="🔄 Обновить" Click="RefreshGoals_Click" Background="#1A946F" Foreground="White" Margin="10,0,0,0" Padding="10,5"/>
+            <Button Content="📤 Экспорт CSV" Click="ExportGoals_Click" Background="#114B5F" Foreground="White" Margin="10,0,0,0" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Таблица целей -->
+        <DataGrid Grid.Row="1" Name="GoalsGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Пользователь" Binding="{Binding UserName}" Width="150"/>
+                <DataGridTextColumn Header="Название цели" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Целевая сумма" Binding="{Binding TargetAmount, StringFormat={}{0}₽}" Width="100"/>
+                <DataGridTextColumn Header="Текущая сумма" Binding="{Binding CurrentAmount, StringFormat={}{0}₽}" Width="100"/>
+                <DataGridTextColumn Header="Прогресс" Binding="{Binding Progress, StringFormat={}{0:F1}%}" Width="80"/>
+                <DataGridTextColumn Header="Дедлайн" Binding="{Binding Deadline, StringFormat=dd.MM.yyyy}" Width="100"/>
+                <DataGridCheckBoxColumn Header="Выполнена" Binding="{Binding IsCompleted}" Width="75"/>
+
+                <!-- Кнопки действий -->
+                <DataGridTemplateColumn Header="Действия" Width="180">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="✏️" Click="EditGoal_Click" Tag="{Binding Id}" Margin="2" Padding="5" 
+                                        ToolTip="Редактировать цель" Background="LightBlue"/>
+                                <Button Content="✅" Click="CompleteGoal_Click" Tag="{Binding Id}" Margin="2" Padding="5"
+                                        ToolTip="Отметить как выполненную" Background="LightGreen"/>
+                                <Button Content="🗑️" Click="DeleteGoal_Click" Tag="{Binding Id}" Margin="2" Padding="5"
+                                        ToolTip="Удалить цель" Background="LightCoral"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

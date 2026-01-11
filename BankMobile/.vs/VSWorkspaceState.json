@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bank",
+    "\\bank\\app",
+    "\\bank\\app\\src",
+    "\\bank\\app\\src\\androidTest",
+    "\\bank\\app\\src\\main",
+    "\\bank\\app\\src\\main\\java",
+    "\\bank\\app\\src\\main\\res",
+    "\\bank\\app\\src\\main\\res\\layout"
+  ],
+  "SelectedNode": "\\bank\\app\\src\\main\\res\\layout\\activity_login.xml",
+  "PreviewInSolutionExplorer": false
+}

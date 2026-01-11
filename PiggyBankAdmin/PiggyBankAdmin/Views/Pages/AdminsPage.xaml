@@ -1,0 +1,39 @@
+﻿<Page x:Class="PiggyBankAdmin.Views.Pages.AdminsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Администраторы">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок и кнопки -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="👑 Управление администраторами" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+            <Button Content="➕ Добавить администратора" Click="AddAdmin_Click" Background="#1A946F" Foreground="White" Margin="20,0,0,0" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Таблица администраторов -->
+        <DataGrid Grid.Row="1" Name="AdminsGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="150"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
+                <DataGridTextColumn Header="Дата регистрации" Binding="{Binding CreatedAt, StringFormat=dd.MM.yyyy}" Width="120"/>
+                <DataGridCheckBoxColumn Header="Активен" Binding="{Binding IsActive}" Width="70"/>
+                <DataGridTemplateColumn Header="Действия" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="✏️" Click="EditAdmin_Click" Tag="{Binding Id}" Margin="2" Padding="5" ToolTip="Редактировать"/>
+                                <Button Content="🚫" Click="BlockAdmin_Click" Tag="{Binding Id}" Margin="2" Padding="5" Background="LightCoral" ToolTip="Заблокировать"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

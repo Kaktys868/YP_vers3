@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Фоновая картинка на весь экран -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/welcome_background"
+        android:scaleType="centerCrop"
+        android:contentDescription="Фоновое изображение" />
+
+    <!-- СВЕТЛЫЙ overlay для лучшей читаемости текста -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#30000000" />
+
+    <!-- Основной контент -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Верхняя часть с приветствием -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Логотип свинки -->
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/pig"
+                android:scaleType="fitCenter"
+                android:contentDescription="Свинка-копилка"
+                android:layout_marginBottom="30dp" />
+
+            <!-- Подложка для текстовой группы -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="250dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#80000000">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="32dp"
+                    android:gravity="center">
+
+                    <!-- Заголовок -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="💰 PiggyBank"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Приветствие -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Добро пожаловать!"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Описание -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Управляйте вашими финансами легко и удобно"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="#F0F0F0"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- Нижняя часть с кнопками -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp">
+
+            <!-- Кнопка входа - ПРОСТОЙ ВАРИАНТ -->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#1A946F"
+                android:onClick="fromWelcome"
+                android:text="Войти"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Кнопка регистрации -->
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:onClick="toRegister"
+                android:text="Зарегистрироваться"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="#11485F"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
