@@ -46,7 +46,7 @@ namespace Bank.Controllers
         }
         [Route("Add")]
         [HttpPost]
-        [ProducesResponseType(500)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(500)]
         public ActionResult Add([FromForm] User task)
         { 
@@ -65,7 +65,7 @@ namespace Bank.Controllers
         }
         [Route("Update")]
         [HttpPut]
-        [ProducesResponseType(500)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(500)]
         public ActionResult Update([FromForm] User task)
         {
@@ -81,7 +81,7 @@ namespace Bank.Controllers
                     }
 
                     existingTask.Email = task.Email;
-                    existingTask.Password = task.Password;
+                    existingTask.Password = gleb(task.Password);
                     existingTask.Name = task.Name;
                     existingTask.CreatedAt = task.CreatedAt;
                     existingTask.IsActive = task.IsActive;

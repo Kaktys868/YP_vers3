@@ -48,9 +48,6 @@ namespace Bank.Controller
         {
             try
             {
-                Console.WriteLine($"Получен UserId: {task.UserId}");
-                Console.WriteLine($"Получен Amount: '{task.Amount}'");
-                Console.WriteLine($"Тип Amount: {task.Amount.GetType()}");
                 TransactionContext TransactionContext = new TransactionContext();
                 TransactionContext.Transactions.Add(task);
                 TransactionContext.SaveChanges();
